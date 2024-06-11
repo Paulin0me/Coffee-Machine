@@ -8,7 +8,9 @@ export class DrinkMaker {
   drinkSelection: DrinkType;
 
   public makeDrink(drinkOrder: string) {
-    if(drinkOrder.startsWith('C')) {
+    let drinkType = drinkOrder.charAt(0);
+    
+    if(drinkType === 'C') {
       this.drinkSelection = DrinkType.COFFEE
     }
   
