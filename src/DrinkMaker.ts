@@ -1,7 +1,6 @@
 export enum DrinkType {
-  COFFEE= "coffee",
-  TEA="tea",
-  COCOA="cocoa"
+  COFFEE = "C",
+  TEA ="T",
 }
 
 export class DrinkMaker {
@@ -10,15 +9,9 @@ export class DrinkMaker {
 
   public makeDrink(drinkOrder: string) {
     let [drinkType, sugarAmount] = drinkOrder.split(':', 2)
-
-    if (drinkType === 'C') {
-      this.drinkSelection = DrinkType.COFFEE
-    }
-
-    if(drinkType === 'T') {
-      this.drinkSelection = DrinkType.TEA
-    }
     
+    this.drinkSelection = drinkType as DrinkType
+
     if (Number(sugarAmount) == 1) {
       this.sugarAmount = 1
     }
