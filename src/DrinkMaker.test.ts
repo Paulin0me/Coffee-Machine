@@ -52,4 +52,17 @@ describe('Drink Maker', () => {
       expect(drinkMaker.drinkSelection).toBe(DrinkType.HOT_CHOCOLATE)
     }))
   })
+
+  it('should send a message to the customer', () => {
+    assert(property(string(), (order) => {
+      // Arrange
+      const drinkMaker = new DrinkMaker()
+
+      // Act
+      const answer = drinkMaker.makeDrink("M:message-content")
+
+      // Assert
+      expect(drinkMaker.drinkSelection).toBe(DrinkType.MESSAGE)
+    }))
+  })
 })
