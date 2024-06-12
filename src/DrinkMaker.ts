@@ -14,6 +14,11 @@ export class DrinkMaker {
     if (drinkType === 'C') {
       this.drinkSelection = DrinkType.COFFEE
     }
+
+    if(drinkType === 'T') {
+      this.drinkSelection = DrinkType.TEA
+    }
+    
     if (Number(sugarAmount) == 1) {
       this.sugarAmount = 1
     }
