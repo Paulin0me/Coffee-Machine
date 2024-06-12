@@ -14,7 +14,7 @@ describe('Drink Maker', () => {
       expect(drinkMaker.drinkSelection).toBe(DrinkType.COFFEE)
     }))
   })
-  it('should make a coffee with one sugar', () => {
+  it('should make a coffee with one sugar and a stick', () => {
     assert(property(string(), (order) => {
       // Arrange
       const drinkMaker = new DrinkMaker()
@@ -51,6 +51,19 @@ describe('Drink Maker', () => {
       // Assert
       expect(drinkMaker.drinkSelection).toBe(DrinkType.HOT_CHOCOLATE)
     }))
+  })
+  it('should make a hot chocolate with two sugars and a stick', () => {
+    assert(property(string(), (order) => {
+      // Arrange
+      const drinkMaker = new DrinkMaker()
+
+      // Act
+      const answer = drinkMaker.makeDrink("H:2:0")
+
+      // Assert
+      expect(drinkMaker.drinkSelection).toBe(DrinkType.HOT_CHOCOLATE)
+      expect(drinkMaker.sugarAmount).toBe(2)
+      }))
   })
 
   it('should send a message to the customer', () => {

@@ -18,8 +18,8 @@ export class DrinkMaker {
       //do the thing to send the message
     }
 
-    if (Number(sugarAmount) == 1) {
-      this.sugarAmount = 1
+    if ([1,2].includes(Number(sugarAmount)) ) {
+      this.sugarAmount = Number(sugarAmount)
     }
   }
 
