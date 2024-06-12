@@ -1,6 +1,7 @@
 export enum DrinkType {
   COFFEE = "C",
   TEA ="T",
+  HOT_CHOCOLATE = "H"
 }
 
 export class DrinkMaker {
