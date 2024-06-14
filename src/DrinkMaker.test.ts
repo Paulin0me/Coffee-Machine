@@ -70,12 +70,27 @@ describe('Drink Maker', () => {
     assert(property(string(), (order) => {
       // Arrange
       const drinkMaker = new DrinkMaker()
+      console.log = jest.fn();
 
       // Act
       const answer = drinkMaker.makeDrink("M:message-content")
 
       // Assert
-      expect(drinkMaker.drinkSelection).toBe(DrinkType.MESSAGE)
+      expect(drinkMaker.drinkSelection).toBe(undefined)
+      expect(console.log).toHaveBeenCalledWith('message-content');
+    }))
+  })
+
+  it('should make a coffee if enough money is given', () => {
+    assert(property(string(), (order) => {
+      // Arrange
+      const drinkMaker = new DrinkMaker()
+
+      // Act
+      const answer = drinkMaker.makeDrink("C::")
+
+      // Assert
+      expect(drinkMaker.drinkSelection).toBe(DrinkType.COFFEE)
     }))
   })
 })
