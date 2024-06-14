@@ -8,7 +8,7 @@ describe('Drink Maker', () => {
       const drinkMaker = new DrinkMaker()
 
       // Act
-      const answer = drinkMaker.makeDrink("C::")
+      const answer = drinkMaker.makeDrink("C::1")
 
       // Assert
       expect(drinkMaker.drinkSelection).toBe(DrinkType.COFFEE)
@@ -20,7 +20,7 @@ describe('Drink Maker', () => {
       const drinkMaker = new DrinkMaker()
 
       // Act
-      const answer = drinkMaker.makeDrink("C:1:")
+      const answer = drinkMaker.makeDrink("C:1:1")
 
       // Assert
       expect(drinkMaker.drinkSelection).toBe(DrinkType.COFFEE)
@@ -33,7 +33,7 @@ describe('Drink Maker', () => {
       const drinkMaker = new DrinkMaker()
 
       // Act
-      const answer = drinkMaker.makeDrink("T::")
+      const answer = drinkMaker.makeDrink("T::1")
 
       // Assert
       expect(drinkMaker.drinkSelection).toBe(DrinkType.TEA)
@@ -46,7 +46,7 @@ describe('Drink Maker', () => {
       const drinkMaker = new DrinkMaker()
 
       // Act
-      const answer = drinkMaker.makeDrink("H::")
+      const answer = drinkMaker.makeDrink("H::1")
 
       // Assert
       expect(drinkMaker.drinkSelection).toBe(DrinkType.HOT_CHOCOLATE)
@@ -58,7 +58,7 @@ describe('Drink Maker', () => {
       const drinkMaker = new DrinkMaker()
 
       // Act
-      const answer = drinkMaker.makeDrink("H:2:0")
+      const answer = drinkMaker.makeDrink("H:2:1")
 
       // Assert
       expect(drinkMaker.drinkSelection).toBe(DrinkType.HOT_CHOCOLATE)
@@ -87,7 +87,7 @@ describe('Drink Maker', () => {
       const drinkMaker = new DrinkMaker()
 
       // Act
-      const answer = drinkMaker.makeDrink("C::")
+      const answer = drinkMaker.makeDrink("C:0:1")
 
       // Assert
       expect(drinkMaker.drinkSelection).toBe(DrinkType.COFFEE)

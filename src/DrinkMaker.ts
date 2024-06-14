@@ -16,7 +16,13 @@ export class DrinkMaker {
       return;
     }
 
-    let [drinkType, sugarAmount] = drinkOrder.split(':', 2)
+    let [drinkType, sugarAmount, moneyProvided] = drinkOrder.split(':', 3);
+
+    if (Number(moneyProvided) < 0.4) {
+      this.sendMessage("Please add 0,4 euro for your order");
+      return;
+    }
+
     this.drinkSelection = drinkType as DrinkType;
 
     if ([1,2].includes(Number(sugarAmount)) ) {
