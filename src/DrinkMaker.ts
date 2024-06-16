@@ -3,7 +3,9 @@ export enum DrinkType {
   TEA ="T",
   HOT_CHOCOLATE = "H",
 }
-
+const drinkMenu = new Map<DrinkType, number>([
+  [DrinkType.COFFEE, 0.4],
+])
 const MESSAGE_CODE = 'M'
 
 export class DrinkMaker {
@@ -18,7 +20,7 @@ export class DrinkMaker {
 
     let [drinkType, sugarAmount, moneyProvided] = drinkOrder.split(':', 3);
 
-    if (Number(moneyProvided) < 0.4) {
+    if (Number(moneyProvided) < drinkMenu.get(drinkType as DrinkType)) {
       this.sendMessage("Please add 0,4 euro for your order");
       return;
     }
