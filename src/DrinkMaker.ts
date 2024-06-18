@@ -4,7 +4,7 @@ export enum DrinkType {
   HOT_CHOCOLATE = "H",
 }
 const drinkMenu = new Map<DrinkType, number>([
-  [DrinkType.COFFEE, 0.4],
+  [DrinkType.COFFEE, 0.6],
 ])
 const MESSAGE_CODE = 'M'
 
