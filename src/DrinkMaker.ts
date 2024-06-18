@@ -2,11 +2,13 @@ export enum DrinkType {
   COFFEE = "C",
   TEA ="T",
   HOT_CHOCOLATE = "H",
+  ORANGE= "O",
 }
 const drinkMenu = new Map<DrinkType, number>([
   [DrinkType.COFFEE, 0.6],
   [DrinkType.TEA, 0.4],
   [DrinkType.HOT_CHOCOLATE, 0.5],
+  [DrinkType.ORANGE, 0.6],
 ])
 const MESSAGE_CODE = 'M'
 
