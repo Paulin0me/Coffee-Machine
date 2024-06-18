@@ -93,7 +93,8 @@ describe('Drink Maker', () => {
       expect(drinkMaker.drinkSelection).toBe(DrinkType.COFFEE)
     }))
   })
-  it('should not make a coffee if enough money is given', () => {
+
+  it('should not make a drink if enough money is given', () => {
     assert(property(string(), (order) => {
       // Arrange
       const drinkMaker = new DrinkMaker()
@@ -104,7 +105,33 @@ describe('Drink Maker', () => {
 
       // Assert
       expect(drinkMaker.drinkSelection).toBe(undefined)
-      expect(console.log).toHaveBeenCalledWith('Please add 0.3 euro for your order');
+      expect(console.log).toHaveBeenCalledWith('Please add 0.5 euro for your order');
+    }))
+  })
+  
+  it('should make a tea if enough money is given', () => {
+    assert(property(string(), (order) => {
+      // Arrange
+      const drinkMaker = new DrinkMaker()
+
+      // Act
+      const answer = drinkMaker.makeDrink("T:0:0.4")
+
+      // Assert
+      expect(drinkMaker.drinkSelection).toBe(DrinkType.TEA)
+    }))
+  })
+
+  it('should make a tea if enough money is given', () => {
+    assert(property(string(), (order) => {
+      // Arrange
+      const drinkMaker = new DrinkMaker()
+
+      // Act
+      const answer = drinkMaker.makeDrink("H:0:0.5")
+
+      // Assert
+      expect(drinkMaker.drinkSelection).toBe(DrinkType.HOT_CHOCOLATE)
     }))
   })
 })
