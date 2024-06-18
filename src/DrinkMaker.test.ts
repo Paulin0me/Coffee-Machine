@@ -147,4 +147,18 @@ describe('Drink Maker', () => {
       expect(drinkMaker.drinkSelection).toBe(DrinkType.ORANGE)
     }))
   })
+
+  it('should make an extra hot coffee', () => {
+    assert(property(string(), () => {
+      // Arrange
+      const drinkMaker = new DrinkMaker()
+
+      // Act
+      drinkMaker.makeDrink("Ch::1")
+
+      // Assert
+      expect(drinkMaker.drinkSelection).toBe(DrinkType.COFFEE)
+      expect(drinkMaker.extraHot).toBe(true);
+    }))
+  })
 })

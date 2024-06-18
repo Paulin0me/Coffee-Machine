@@ -15,6 +15,7 @@ const MESSAGE_CODE = 'M'
 export class DrinkMaker {
   drinkSelection: DrinkType;
   sugarAmount: number = 0;
+  extraHot: boolean = false;
 
   public makeDrink(drinkOrder: string) {
     if (drinkOrder.charAt(0) === MESSAGE_CODE) {
@@ -24,9 +25,16 @@ export class DrinkMaker {
 
     let [drinkType, sugarAmount, moneyProvided] = drinkOrder.split(':', 3);
 
+    if (drinkType.charAt(1) === 'h') {
+      this.extraHot = true;
+      drinkType = drinkType.charAt(0);
+    }
+
     if (!drinkMenu.get(drinkType as DrinkType)) {
       return;
     }
+
+
 
     const remainder: number = (Number(moneyProvided) - drinkMenu.get(drinkType as DrinkType));
     if (remainder < 0) {
