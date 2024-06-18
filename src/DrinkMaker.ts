@@ -20,8 +20,9 @@ export class DrinkMaker {
 
     let [drinkType, sugarAmount, moneyProvided] = drinkOrder.split(':', 3);
 
-    if (Number(moneyProvided) < drinkMenu.get(drinkType as DrinkType)) {
-      this.sendMessage("Please add 0,4 euro for your order");
+    const remainder: number = (Number(moneyProvided) - drinkMenu.get(drinkType as DrinkType));
+    if (remainder < 0) {
+      this.sendMessage(`Please add ${-remainder.toFixed(1)} euro for your order`);
       return;
     }
 

@@ -93,4 +93,18 @@ describe('Drink Maker', () => {
       expect(drinkMaker.drinkSelection).toBe(DrinkType.COFFEE)
     }))
   })
+  it('should not make a coffee if enough money is given', () => {
+    assert(property(string(), (order) => {
+      // Arrange
+      const drinkMaker = new DrinkMaker()
+      console.log = jest.fn();
+
+      // Act
+      const answer = drinkMaker.makeDrink("C:0:0.1")
+
+      // Assert
+      expect(drinkMaker.drinkSelection).toBe(undefined)
+      expect(console.log).toHaveBeenCalledWith('Please add 0.3 euro for your order');
+    }))
+  })
 })
