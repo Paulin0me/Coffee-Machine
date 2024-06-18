@@ -34,8 +34,6 @@ export class DrinkMaker {
       return;
     }
 
-
-
     const remainder: number = (Number(moneyProvided) - drinkMenu.get(drinkType as DrinkType));
     if (remainder < 0) {
       this.sendMessage(`Please add ${-remainder.toFixed(1)} euro for your order`);
